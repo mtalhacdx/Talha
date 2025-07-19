@@ -1,0 +1,573 @@
+<!--
+    ============================================================================
+    Muhammad Talha | Portfolio Website
+    ============================================================================
+    Author: Muhammad Talha
+    Description: Personal portfolio website showcasing web development, graphic 
+    design, video editing, UI/UX, and content writing services. Includes sections 
+    for About, Services, Portfolio, Testimonials, Contact, and Footer.
+    Technologies: HTML5, CSS3, JavaScript, Font Awesome, Google Fonts, Animate.css
+    ============================================================================
+
+    =======================
+    HEAD SECTION
+    =======================
+    - Meta tags for responsive design and character encoding
+    - Title and favicon
+    - External stylesheets: Font Awesome, Google Fonts (Poppins), Animate.css
+    - Custom stylesheet: style.css
+
+    =======================
+    HEADER SECTION
+    =======================
+    - Logo and navigation bar with links to main sections
+    - Dark mode toggle icon
+    - Responsive menu toggle for mobile navigation
+
+    =======================
+    HOME SECTION
+    =======================
+    - Introduction with animated headings and description
+    - Social media links
+    - Call-to-action button for hiring
+    - Profession carousel highlighting skills
+    - Profile image
+
+    =======================
+    ABOUT SECTION
+    =======================
+    - Profile image with decorative shape
+    - About content: heading, subheading, description, and "Read More" button
+
+    =======================
+    SERVICES SECTION
+    =======================
+    - Services heading and grid layout
+    - Service cards for: Web Development, Graphic Design, Video Editing, UI/UX Design, Content Writing
+    - Each card includes icon, title, description, and "Learn More" button
+    - Section end divider
+
+    =======================
+    PORTFOLIO SECTION
+    =======================
+    - Portfolio heading and subtitle
+    - Grid of portfolio cards for web and graphic design projects
+    - Each card includes image, overlay with project details, technology stack, and tags
+    - Section end divider
+
+    =======================
+    TESTIMONIALS SLIDER
+    =======================
+    - Heading and subtitle
+    - Slider with client testimonials (avatar, name, position, feedback, rating)
+    - Navigation controls: previous/next buttons and slider dots
+    - Section end divider
+
+    =======================
+    CONTACT FORM SECTION
+    =======================
+    - Section header with heading and subtitle
+    - Modern contact form with floating labels and icons
+    - Fields: Name, Email, Phone (optional), Message
+    - Submit button with glow effect
+    - Form feedback area for status messages
+
+    =======================
+    FOOTER SECTION
+    =======================
+    - Compact footer with brand logo and social links
+    - Copyright notice
+    - Legal links: Privacy, Terms
+
+    =======================
+    SCRIPTS
+    =======================
+    - External JavaScript file: script.js
+
+    ============================================================================
+    End of Documentation
+    ============================================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Talha</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Animate.css for Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+
+     <link rel="icon" type="image/x-icon" href="images/icon.png">
+
+
+</head>
+<body>
+    <!-- =======================
+     Header Section
+======================= -->
+<header class="header">
+    <a href="#home" class="logo">Talha<span>.</span></a>
+    <nav class="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+        <i class="fas fa-moon" id="darkMode-icon"></i>
+    </nav>
+    <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+</header>
+
+    <!-- =======================
+         Home Section
+    ======================== -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3 class="animate__animated animate__fadeInDown">Hi, I'm</h3>
+            <h1 class="animate__animated animate__fadeInDown">Muhammad Talha</h1>
+    
+            <p class="animate__animated animate__fadeInDown">Passionate web developer and designer creating digital experiences that matter. Let's build something amazing together.</p>
+            <div class="social-media animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                <a href="waiting.html" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="waiting.html" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="waiting.html" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="waiting.html" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="cta-buttons">
+                <a href="https://www.guru.com/freelancers/artboost" class="btn animate__animated animate__fadeInUp">Hire Now</a>
+            </div>
+        </div>
+        <div class="profession-container">
+            <div class="profession-box">
+                <div class="profession" style="--i:0">
+                    <i class="fa-solid fa-code"></i>
+                    <h3>Web Developer</h3>
+                </div>
+                <div class="profession" style="--i:1">
+                    <i class="fa-solid fa-palette"></i>
+                    <h3>Graphic Designer</h3>
+                </div>
+                <div class="profession" style="--i:2">
+                    <i class="fa-brands fa-figma"></i>
+                    <h3>UI/UX Designer</h3>
+                </div>
+                <div class="profession" style="--i:3">
+                    <i class="fa-solid fa-video"></i>
+                    <h3>Video Editor</h3>
+                </div>
+                <div class="cicle"></div>
+            </div>
+            <div class="overlay"></div>
+        </div>
+    <div class="home-image">
+    <img src="images/Profile.png" alt="Professional portrait of Talha" loading="lazy" 
+       >
+</div>
+    </section>
+
+    <!-- =======================
+         About Section
+    ======================== -->
+    <section class="about" id="about">
+        <div class="about-image">
+            <div class="shape-container">
+                <img src="images/Profile.png" alt="Talha's Profile Image">
+            </div>
+        </div>
+        <div class="about-content">
+            <h2 class="heading">About <span>Me</span></h2>
+            <h3>Hi, I Am Here To Help Your Next Project!</h3>
+            <p>
+                I am a dedicated web developer, designer, and video editor with a strong track record of delivering modern, responsive websites and digital solutions. My skills cover front-end and back-end development, UI/UX design, and professional video editing. I focus on quality, efficiency, and user experience in every project. Let’s work together to achieve your business goals with creative and reliable results.
+            </p>
+            <a href="#services" class="btn">Read More</a>
+        </div>
+    </section>
+
+    <!-- =======================
+         Services Section
+    ======================== -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <h2 class="heading animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">My <span>Services</span></h2>
+            <div class="services-grid">
+                <!-- Service Card: Web Development -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4>Web Development</h4>
+                    <p>Custom website development with modern technologies like HTML5, CSS3, JavaScript, and frameworks
+                        to build responsive, high-performance websites.</p>
+                    <a href="Website-Development.html" class="btn">Learn More</a>
+                </div>
+                <!-- Service Card: Graphic Design -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h4>Graphic Design</h4>
+                    <p>Creative visual solutions including logos, branding materials, and marketing collateral that
+                        communicate your brand's message effectively.</p>
+                    <a href="Graphic-Designing.html" class="btn">Learn More</a>
+                </div>
+                <!-- Service Card: Video Editing -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h4>Video Editing</h4>
+                    <p>Professional video editing services to create engaging content, including color correction,
+                        motion graphics, and seamless transitions.</p>
+                    <a href="Video-Editing.html" class="btn">Learn More</a>
+                </div>
+                <!-- Service Card: UI/UX Design -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-figma"></i>
+                    </div>
+                    <h4>UI/UX Design</h4>
+                    <p>User-centered design solutions that combine aesthetics with functionality to create intuitive and
+                        engaging digital experiences.</p>
+                    <a href="UI-Design.html" class="btn">Learn More</a>
+                </div>
+                <!-- Service Card: Content Writing -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-pen-nib"></i>
+                    </div>
+                    <h4>Content Writing</h4>
+                    <p>Professional content writing services for websites, blogs, and marketing materials to engage your audience and boost your brand's online presence.</p>
+                    <a href="Content-Writing.html" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="section-end">
+            <div class="end-line"></div>
+            <div class="end-diamond"></div>
+            <div class="end-line"></div>
+        </div>
+    </section>
+
+    <!-- =======================
+         Portfolio Section
+    ======================== -->
+    <section class="portfolio" id="portfolio">
+        <div class="portfolio-container">
+            <h2 class="heading animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">My <span>Projects</span></h2>
+            <p class="portfolio-subtitle animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">A showcase of my best work in web development and graphic design</p>
+            <div class="portfolio-grid">
+                <!-- Website Project 1 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="E-commerce Website">
+                        <div class="portfolio-overlay">
+                            <h4>E-commerce Platform</h4>
+                            <p>Full-stack e-commerce solution with React and Node.js</p>
+                            <div class="portfolio-btn-group">
+                                <a href="waiting.html" class="portfolio-btn"><i class="fas fa-link"></i> Live</a>
+                                <a href="waiting.html" class="portfolio-btn"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>E-commerce Platform</h3>
+                        <p>React, Node.js, MongoDB</p>
+                        <span class="portfolio-tag">Web Development</span>
+                    </div>
+                </div>
+                <!-- Website Project 2 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                            alt="Portfolio Website">
+                        <div class="portfolio-overlay">
+                            <h4>Portfolio Website</h4>
+                            <p>Modern portfolio design with animations</p>
+                            <div class="portfolio-btn-group">
+                                <a href="waiting.html" class="portfolio-btn"><i class="fas fa-link"></i> Live</a>
+                                <a href="waiting.html" class="portfolio-btn"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Portfolio Website</h3>
+                        <p>HTML, CSS, JavaScript</p>
+                        <span class="portfolio-tag">Web Development</span>
+                    </div>
+                </div>
+                <!-- Website Project 3 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Task Management App">
+                        <div class="portfolio-overlay">
+                            <h4>Task Management App</h4>
+                            <p>Productivity application with drag-and-drop interface</p>
+                            <div class="portfolio-btn-group">
+                                <a href="waiting.html" class="portfolio-btn"><i class="fas fa-link"></i> Live</a>
+                                <a href="waiting.html" class="portfolio-btn"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Task Management App</h3>
+                        <p>Vue.js, Firebase</p>
+                        <span class="portfolio-tag">Web Development</span>
+                    </div>
+                </div>
+                <!-- Graphic Design Project Logic for displaying content remains unchanged -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80"
+                            alt="Brand Identity">
+                        <div class="portfolio-overlay">
+                            <h4>Brand Identity</h4>
+                            <p>Complete branding package for startup company</p>
+                            <div class="portfolio-btn-group">
+                                <a href="waiting.html" class="portfolio-btn"><i class="fas fa-link"></i> View</a>
+                                <a href="waiting.html" class="portfolio-btn"><i class="fas fa-download"></i> Assets</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Brand Identity</h3>
+                        <p>Logo, Business Cards, Letterhead</p>
+                        <span class="portfolio-tag">Graphic Design</span>
+                    </div>
+                </div>
+                <!-- Graphic Design Project 2 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Marketing Materials">
+                        <div class="portfolio-overlay">
+                            <h4>Marketing Materials</h4>
+                            <p>Brochures and flyers for marketing campaign</p>
+                            <div class="portfolio-btn-group">
+                                <a href="waiting.html" class="portfolio-btn"><i class="fas fa-link"></i> View</a>
+                                <a href="waiting.html" class="portfolio-btn"><i class="fas fa-download"></i> Assets</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Marketing Materials</h3>
+                        <p>Brochures, Flyers, Social Media</p>
+                        <span class="portfolio-tag">Graphic Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-end">
+            <div class="end-line"></div>
+            <div class="end-diamond"></div>
+            <div class="end-line"></div>
+        </div>
+    </section>
+
+    <!-- =======================
+         Testimonials Slider
+    ======================== -->
+    <section class="testimonials-slider " id="testimonials">
+        <div class="slider-container ">
+            <h2 class="heading ">Client <span>Testimonials</span></h2>
+            <p class="subtitle">Trusted by leading brands and startups</p>
+            <div class="slider-wrapper">
+                <div class="slider-track">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <div class="client-meta">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Johnson"
+                                    class="client-avatar">
+                                <div class="client-info">
+                                    <h4>Michael Johnson</h4>
+                                    <p>CEO, TechSolutions Inc.</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-text">
+                                <i class="fas fa-quote-left quote-icon"></i>
+                                <p>Our e-commerce project was completed with impressive technical expertise and professionalism. All requirements were met on time, and the website performs flawlessly. Talha's reliability and skill make him a top choice for web development.</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <div class="client-meta">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Williams"
+                                    class="client-avatar">
+                                <div class="client-info">
+                                    <h4>Sarah Williams</h4>
+                                    <p>Marketing Director, BrandVibe</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-text">
+                                <i class="fas fa-quote-left quote-icon"></i>
+                                <p>He exceeded expectations. The website launch was smooth, and our team felt supported throughout. Creative, reliable, and quick to adapt. Highly recommended.</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <div class="client-meta">
+                                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David Chen"
+                                    class="client-avatar">
+                                <div class="client-info">
+                                    <h4>David Chen</h4>
+                                    <p>CTO, EnterpriseSoft</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-text">
+                                <i class="fas fa-quote-left quote-icon"></i>
+                                <p>They consistently demonstrated technical excellence and a proactive approach. The final product was polished, reliable, and delivered on time. Collaboration was seamless and efficient.</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="slider-dots"></div>
+                <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+        <div class="section-end">
+            <div class="end-line"></div>
+            <div class="end-diamond"></div>
+            <div class="end-line"></div>
+        </div>
+    </section>
+
+    <!-- =======================
+         Contact Form Section
+    ======================== -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="section-header">
+                <h2 class="section-heading animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">Let's <span>Talk</span></h2>
+                <p class="section-subtitle animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">Ready to bring your ideas to life? Drop me a message below.</p>
+                <div class="header-divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-dot"></div>
+                    <div class="divider-line"></div>
+                </div>
+            </div>
+            <form class="modern-form" id="contactForm" action="https://formspree.io/f/xeozqjno" method="POST">
+                <input type="hidden" name="_subject" value="New Contact Form Submission">
+                <input type="hidden" name="_redirect" value="thankyou.html">
+                <div class="form-grid">
+                    <div class="input-group floating-group">
+                        <input type="text" id="name" name="name" class="floating-input" placeholder="Your Name" required>
+                        <label for="name" class="floating-label">
+                            <i class="icon fas fa-user"></i>
+                            <span>Your Name</span>
+                        </label>
+                        <div class="input-underline"></div>
+                    </div>
+                    <div class="input-group floating-group">
+                        <input type="email" id="email" name="email" class="floating-input" placeholder="Email Address" required>
+                        <label for="email" class="floating-label">
+                            <i class="icon fas fa-envelope"></i>
+                            <span>Email Address</span>
+                        </label>
+                        <div class="input-underline"></div>
+                    </div>
+                    <div class="input-group floating-group">
+                        <input type="tel" id="phone" name="phone" class="floating-input" placeholder="Phone (Optional)">
+                        <label for="phone" class="floating-label">
+                            <i class="icon fas fa-phone"></i>
+                            <span>Phone (Optional)</span>
+                        </label>
+                        <div class="input-underline"></div>
+                    </div>
+                    <div class="input-group floating-group full-width">
+                        <textarea id="message" name="message" class="floating-input" rows="5" placeholder="Your Message" required></textarea>
+                        <label for="message" class="floating-label">
+                            <i class="icon fas fa-comment-alt"></i>
+                            <span>Your Message</span>
+                        </label>
+                        <div class="input-underline"></div>
+                    </div>
+                </div>
+                <button type="submit" class="glow-button">
+                    <span class="button-text">Send Message</span>
+                    <span class="button-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </span>
+                    <span class="glow"></span>
+                </button>
+                <div class="form-feedback" id="formStatus"></div>
+            </form>
+        </div>
+    </section>
+
+  <!-- =======================
+     Compact Smart Footer
+======================== -->
+<footer class="portfolio-footer">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#home" class="footer-logo">Talha<span>.</span></a>
+                <div class="footer-social">
+                    <a href="waiting.html" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="waiting.html" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="waiting.html" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © <span>2022</span> Muhammad Talha
+                </div>
+                <div class="footer-legal">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
