@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphic Design Portfolio | Muhammad Talha</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* ============================================================
+            Global Styles (Exactly Matching Home Page)
+        ============================================================ */
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #2d3748;
+            --main-color: #6c63ff;
+            --white-color: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --header-height: 80px;
+        }
+
+        body.dark-mode {
+            --bg-color: #1a202c;
+            --text-color: #e2e8f0;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* ============================================================
+            Header/Navbar (Identical to Home Page)
+        ============================================================ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            padding: 0 5vw;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        body.dark-mode .header.scrolled {
+            background: rgba(26, 32, 44, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--main-color);
+        }
+
+        .navbar {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .navbar a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-color);
+            transition: all 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--main-color);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar a:hover::after,
+        .navbar a.active::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .navbar a:hover {
+            color: #4f46e5;
+        }
+
+        .navbar a.active {
+            color: #a5a5a5;
+        }
+
+        #darkMode-icon {
+            font-size: 1.3rem;
+            cursor: pointer;
+            margin-left: 1rem;
+            transition: transform 0.3s ease, color 0.3s;
+        }
+
+        #darkMode-icon:hover {
+            transform: rotate(30deg);
+            color: #574ef7;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 1001;
+        }
+
+        /* Dark Mode Navbar Styles */
+        body.dark-mode .header {
+            background: transparent;
+            box-shadow: none;
+        }
+
+        body.dark-mode .header.scrolled {
+            background: rgba(26, 32, 44, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .navbar a {
+            color: var(--text-color);
+            font-size: .99rem;
+            font-weight: 500;
+        }
+
+        body.dark-mode .navbar a:hover {
+            color: #a5b4fc;
+        }
+
+        body.dark-mode .navbar a.active {
+            color: #a5a5a5;
+        }
+
+        /* ============================================================
+            Portfolio Hero Section (Enhanced with 3D Design Tools)
+        ============================================================ */
+        .portfolio-hero {
+            position: relative;
+            padding: calc(var(--header-height) + 4rem) 5vw 4rem;
+            text-align: center;
+            overflow: hidden;
+            height: 100vh;
+            min-height: 700px;
+            max-height: 1200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        /* Animated 3D Design Tools Background */
+        .design-tools-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .floating-tools {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .tool-icon {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            opacity: 0.8;
+            animation: float var(--duration, 8s) infinite ease-in-out;
+            animation-delay: var(--delay, 0s);
+            filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.25));
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tool-icon:hover {
+            opacity: 1;
+            transform: scale(1.1);
+            filter: drop-shadow(0 12px 25px rgba(0, 0, 0, 0.35));
+        }
+
+        .icon-3d {
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            animation: rotate3d calc(var(--duration, 8s) * 1.2) infinite linear;
+            animation-delay: var(--delay, 0s);
+            border-radius: 12px;
+            perspective: 1000px;
+        }
+
+        .icon-3d img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            object-fit: contain;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        /* Individual icon positioning and animations */
+        .ps-icon {
+            top: 10%;
+            left: 15%;
+            animation-duration: 9s;
+        }
+
+        .ai-icon {
+            top: 20%;
+            right: 20%;
+            animation-duration: 11s;
+        }
+
+        .figma-icon {
+            top: 60%;
+            left: 10%;
+            animation-duration: 8.5s;
+        }
+
+        .id-icon {
+            top: 70%;
+            right: 15%;
+            animation-duration: 10.5s;
+        }
+
+        .ae-icon {
+            top: 40%;
+            left: 5%;
+            animation-duration: 12.5s;
+        }
+
+        .sketch-icon {
+            top: 15%;
+            left: 50%;
+            animation-duration: 7.5s;
+        }
+
+        .xd-icon {
+            top: 80%;
+            left: 40%;
+            animation-duration: 9.8s;
+        }
+
+        .canva-icon {
+            top: 30%;
+            right: 10%;
+            animation-duration: 11.2s;
+        }
+
+        .palette-icon {
+            top: 50%;
+            right: 30%;
+            animation-duration: 8.8s;
+        }
+
+        .pen-icon {
+            top: 35%;
+            left: 80%;
+            animation-duration: 10.8s;
+        }
+
+        /* Keyframe animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px) scale(1) rotate(0deg);
+            }
+            20% {
+                transform: translateY(-15px) translateX(8px) scale(1.02) rotate(2deg);
+            }
+            40% {
+                transform: translateY(-8px) translateX(-12px) scale(0.98) rotate(-1deg);
+            }
+            60% {
+                transform: translateY(-20px) translateX(5px) scale(1.05) rotate(1deg);
+            }
+            80% {
+                transform: translateY(-5px) translateX(-8px) scale(1.01) rotate(-2deg);
+            }
+        }
+
+        @keyframes rotate3d {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            }
+            20% {
+                transform: rotateX(10deg) rotateY(72deg) rotateZ(5deg);
+            }
+            40% {
+                transform: rotateX(-5deg) rotateY(144deg) rotateZ(-3deg);
+            }
+            60% {
+                transform: rotateX(8deg) rotateY(216deg) rotateZ(7deg);
+            }
+            80% {
+                transform: rotateX(-3deg) rotateY(288deg) rotateZ(-2deg);
+            }
+            100% {
+                transform: rotateX(0deg) rotateY(360deg) rotateZ(0deg);
+            }
+        }
+
+        .tools-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.35);
+            z-index: 1;
+        }
+
+        /* Add subtle pulsing effect to some icons */
+        .ps-icon .icon-3d,
+        .figma-icon .icon-3d,
+        .canva-icon .icon-3d {
+            animation: rotate3d calc(var(--duration, 8s) * 1.2) infinite linear,
+                       pulse 4s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                filter: brightness(1) saturate(1);
+            }
+            50% {
+                filter: brightness(1.1) saturate(1.2);
+            }
+        }
+
+        /* Staggered animation delays for more natural movement */
+        .tool-icon:nth-child(odd) {
+            animation-direction: alternate;
+        }
+
+        .tool-icon:nth-child(even) {
+            animation-direction: alternate-reverse;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            color: white;
+        }
+
+        .portfolio-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            background: none;
+            -webkit-text-fill-color: white;
+        }
+
+        .portfolio-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Dark mode adjustments */
+        body.dark-mode .portfolio-hero {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+        }
+
+        body.dark-mode .tools-overlay {
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .tool-icon {
+                width: 55px;
+                height: 55px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .portfolio-hero {
+                min-height: 600px;
+            }
+            
+            .portfolio-hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .tool-icon {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-hero {
+                min-height: 500px;
+                padding: calc(var(--header-height) + 2rem) 5vw 2rem;
+            }
+            
+            .portfolio-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .portfolio-hero p {
+                font-size: 1rem;
+            }
+
+            .tool-icon {
+                width: 45px;
+                height: 45px;
+            }
+
+            /* Adjust positions for mobile */
+            .ps-icon { top: 8%; left: 8%; }
+            .ai-icon { top: 18%; right: 8%; }
+            .figma-icon { top: 72%; left: 8%; }
+            .id-icon { top: 82%; right: 8%; }
+            .ae-icon { top: 42%; left: 2%; }
+            .sketch-icon { top: 12%; left: 42%; }
+            .xd-icon { top: 88%; left: 38%; }
+            .canva-icon { top: 28%; right: 2%; }
+            .palette-icon { top: 52%; right: 22%; }
+            .pen-icon { top: 32%; left: 72%; }
+        }
+
+        @media (max-width: 480px) {
+            .portfolio-hero {
+                min-height: 400px;
+            }
+            
+            .portfolio-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .tool-icon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        .portfolio-hero .category-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .portfolio-hero .filter-btn {
+            padding: 0.7rem 1.5rem;
+            background: transparent;
+            border: 1px solid var(--main-color);
+            color: var(--main-color);
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-hero .filter-btn.active,
+        .portfolio-hero .filter-btn:hover {
+            background: var(--main-color);
+            color: var(--white-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.2);
+        }
+
+        body.dark-mode .portfolio-hero .filter-btn {
+            border: 1px solid var(--main-color);
+            color: var(--main-color);
+            background: transparent;
+        }
+
+        body.dark-mode .portfolio-hero .filter-btn.active,
+        body.dark-mode .portfolio-hero .filter-btn:hover {
+            background: var(--main-color);
+            color: var(--white-color);
+        }
+
+        /* ============================================================
+            Portfolio Categories Sections (More Professional)
+        ============================================================ */
+        .portfolio-section {
+            padding: 5rem 5vw;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(108, 99, 255, 0.3);
+            z-index: -1;
+            border-radius: 4px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* ============================================================
+            Enhanced Portfolio Item with Sophisticated Design
+        ============================================================ */
+        .portfolio-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            background: var(--white-color);
+        }
+
+        body.dark-mode .portfolio-item {
+            background: #2d3748;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(108, 99, 255, 0.2);
+        }
+
+        body.dark-mode .portfolio-item:hover {
+            box-shadow: 0 15px 30px rgba(108, 99, 255, 0.4);
+        }
+
+        .portfolio-item-container {
+            position: relative;
+            width: 100%;
+            padding-top: 100%; /* 1:1 Aspect Ratio */
+            overflow: hidden;
+        }
+
+        /* Image Protection Techniques */
+        .portfolio-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.05);
+        }
+
+        /* Overlay to prevent image saving with hover effect */
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 40%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+            color: white;
+            pointer-events: none;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay-content {
+            opacity: 0;
+        }
+        .portfolio-info {
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-info {
+            background: rgba(108, 99, 255, 0.05);
+        }
+
+        .portfolio-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .portfolio-info p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            color: var(--text-color);
+        }
+
+        body.dark-mode .portfolio-info h3 {
+            color: var(--text-color);
+        }
+
+        body.dark-mode .portfolio-info p {
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        body.dark-mode .portfolio-item:hover .portfolio-info {
+            background: rgba(108, 99, 255, 0.1);
+        }
+
+        /* Watermark Protection */
+        .portfolio-watermark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><text x="50%" y="50%" fill="rgba(108,99,255,0.2)" font-size="40" font-family="Arial" text-anchor="middle" dominant-baseline="middle" transform="rotate(-45, 200, 200)">TALHADESIGN</text></svg>') repeat;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ============================================================
+            Section Dividers (Matching Home Page)
+        ============================================================ */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 4rem auto;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .divider-line {
+            height: 1px;
+            flex: 1;
+            background: linear-gradient(90deg,
+                    transparent 0%,
+                    rgba(108, 99, 255, 0.3) 20%,
+                    rgba(108, 99, 255, 0.6) 50%,
+                    rgba(108, 99, 255, 0.3) 80%,
+                    transparent 100%);
+        }
+
+        .divider-diamond {
+            width: 12px;
+            height: 12px;
+            margin: 0 15px;
+            background: var(--main-color);
+            transform: rotate(45deg);
+            position: relative;
+        }
+
+        .divider-diamond::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 6px;
+            height: 6px;
+            background: var(--white-color);
+            border-radius: 1px;
+        }
+
+        /* Dark Mode Adjustments */
+        body.dark-mode .divider-line {
+            background: linear-gradient(90deg,
+                    transparent 0%,
+                    rgba(255, 255, 255, 0.1) 20%,
+                    rgba(255, 255, 255, 0.2) 50%,
+                    rgba(255, 255, 255, 0.1) 80%,
+                    transparent 100%);
+        }
+
+        body.dark-mode .divider-diamond {
+            background: var(--main-color);
+        }
+
+        body.dark-mode .divider-diamond::before {
+            background: var(--bg-color);
+        }
+
+        /* ============================================================
+            Call to Action Section (Enhanced)
+        ============================================================ */
+        .cta-section {
+            padding: 6rem 5vw;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.05) 0%, rgba(108, 99, 255, 0.1) 100%);
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, var(--bg-color), transparent);
+            z-index: 1;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--text-color), var(--main-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--main-color);
+            color: var(--white-color);
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--white-color);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
+        .cta-btn:hover {
+            color: var(--main-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
+        }
+
+        .cta-btn:hover::before {
+            left: 0;
+        }
+
+        body.dark-mode .cta-section {
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1) 0%, rgba(108, 99, 255, 0.15) 100%);
+        }
+
+        body.dark-mode .cta-section h2 {
+            background: linear-gradient(to right, var(--text-color), var(--main-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.dark-mode .cta-section p {
+            color: var(--text-color);
+            opacity: 0.9;
+        }
+
+        /* ============================================================
+            Compact Footer Styles (Matching index.html)
+        ============================================================ */
+        .portfolio-footer {
+            background: var(--bg-color);
+            color: var(--text-color);
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .footer-logo span {
+            color: var(--main-color);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            color: var(--text-color);
+            opacity: 0.8;
+            transition: all 0.2s ease;
+        }
+
+        .social-link:hover {
+            color: var(--main-color);
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(108, 99, 255, 0.1);
+        }
+
+        .footer-copyright {
+            opacity: 0.8;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-legal a {
+            opacity: 0.8;
+            transition: all 0.2s ease;
+        }
+
+        .footer-legal a:hover {
+            color: var(--main-color);
+            opacity: 1;
+        }
+
+        /* Footer Responsive Adjustments */
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .footer-brand {
+                flex-direction: row;
+            }
+
+            .footer-bottom {
+                flex-direction: row;
+                border-top: none;
+                padding-top: 0;
+            }
+        }
+        /* ============================================================
+            Responsive Design
+        ============================================================ */
+
+        /* Add below your existing CSS or replace the @media sections */
+
+@media (max-width: 1200px) {
+    .portfolio-section {
+        padding: 3rem 2vw;
+    }
+    .portfolio-grid {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .portfolio-hero h1 {
+        font-size: 2.3rem;
+    }
+    .portfolio-section {
+        padding: 2rem 2vw;
+    }
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1rem;
+    }
+    .section-header h2 {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-hero {
+        padding: calc(var(--header-height) + 1rem) 2vw 1rem;
+    }
+    .portfolio-hero h1 {
+        font-size: 1.5rem;
+    }
+    .portfolio-hero p {
+        font-size: 1rem;
+    }
+    .portfolio-section {
+        padding: 1.5rem 2vw;
+    }
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .section-header h2 {
+        font-size: 1.2rem;
+    }
+    .cta-section h2 {
+        font-size: 1.3rem;
+    }
+    .cta-section p {
+        font-size: 1rem;
+    }
+    .cta-btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
+    }
+    .footer {
+        padding: 2rem 2vw;
+    }
+    .footer-logo {
+        font-size: 1.2rem;
+    }
+    .footer-social a {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-hero h1 {
+        font-size: 1.1rem;
+    }
+    .portfolio-hero p {
+        font-size: 0.9rem;
+    }
+    .portfolio-section {
+        padding: 1rem 1vw;
+    }
+    .portfolio-info h3 {
+        font-size: 1rem;
+    }
+    .portfolio-info p {
+        font-size: 0.8rem;
+        font-size: 0.8rem;
+    }
+    .cta-section h2 {
+        font-size: 1rem;
+    }
+    .cta-section p {
+        font-size: 0.9rem;
+    }
+    .cta-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    .footer {
+        padding: 1rem 1vw;
+    }
+    .footer-logo {
+        font-size: 1rem;
+    }
+    .footer-social a {
+        font-size: 0.9rem;
+    }
+}
+
+/* Responsive watermark: always centered and scaled */
+.portfolio-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 1;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.portfolio-watermark::before {
+    content: "TALHADESIGN";
+    display: block;
+    color: rgba(108,99,255, .35);
+    font-size: 3vw;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    transform: rotate(-25deg);
+    opacity: 1;
+    width: 100%;
+}
+@media (max-width: 992px) {
+    .portfolio-hero h1 {
+        font-size: 3rem;
+    }
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    .portfolio-watermark::before {
+        font-size: 4vw;
+    }
+}
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        margin-top: 80px;
+        max-width: 60%;
+        height: 60vh;
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+        border-right: 4px solid var(--main-color);
+        border-radius: 0px 9px 9px 0px;
+        transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+    .navbar a {
+        font-size: 1.3rem;
+    }
+    .navbar.active {
+        right: 0;
+    }
+    body.dark-mode .navbar {
+        background: rgba(26, 32, 44, 0.98);
+    }
+    body.dark-mode .navbar a {
+        font-size: 1.3rem;
+    }
+    .portfolio-hero {
+        padding: calc(var(--header-height) + 2rem) 5vw 2rem;
+    }
+    .portfolio-hero h1 {
+        font-size: 2.5rem;
+    }
+    .portfolio-section {
+        padding: 3rem 5vw;
+    }
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    .portfolio-watermark::before {
+        font-size: 6vw;
+    }
+}
+@media (max-width: 480px) {
+    .portfolio-hero h1 {
+        font-size: 2rem;
+    }
+    .portfolio-hero p {
+        font-size: 1rem;
+    }
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    .portfolio-watermark::before {
+        font-size: 9vw;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header class="header">
+        <a href="index.html" class="logo">Talha<span>.</span></a>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="graphic-design.html" class="active">Portfolio</a>
+            <a href="index.html#contact">Contact</a>
+            <i class="fas fa-moon" id="darkMode-icon"></i>
+        </nav>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+ <!-- Replace your existing portfolio-hero section with this code -->
+<section class="portfolio-hero">
+    <!-- Animated 3D Design Tools Background -->
+    <div class="design-tools-background">
+        <div class="floating-tools">
+            <!-- Photoshop Icon -->
+            <div class="tool-icon ps-icon" style="--delay: 0s; --duration: 8s;">
+                <div class="icon-3d">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="Adobe Photoshop" style="border-radius: 15px;">
+                </div>
+            </div>
+
+            <!-- Illustrator Icon -->
+            <div class="tool-icon ai-icon" style="--delay: 1s; --duration: 10s;">
+                <div class="icon-3d">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" alt="Adobe Illustrator" style="border-radius: 15px;">
+                </div>
+            </div>
+
+            <!-- Figma Icon -->
+            <div class="tool-icon figma-icon" style="--delay: 2s; --duration: 9s;">
+                <div class="icon-3d">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" style="border-radius: 15px;">
+                </div>
+            </div>
+
+            <!-- InDesign Icon -->
+            <div class="tool-icon id-icon" style="--delay: 3s; --duration: 11s;">
+                <div class="icon-3d">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Adobe_InDesign_CC_icon.svg" alt="Adobe InDesign" style="border-radius: 15px;">
+                </div>
+            </div>
+
+            <!-- After Effects Icon -->
+            <div class="tool-icon ae-icon" style="--delay: 4s; --duration: 12s;">
+                <div class="icon-3d">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg" alt="Adobe After Effects" style="border-radius: 15px;">
+                </div>
+            </div>
+
+            <!-- Sketch Icon -->
+            <div class="tool-icon sketch-icon" style="--delay: 5s; --duration: 7s;">
+                <div class="icon-3d">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sketch/sketch-original.svg" alt="Sketch" style="border-radius: 15px;">
+                </div>
+            </div>
+
+            <!-- XD Icon -->
+            <div class="tool-icon xd-icon" style="--delay: 6s; --duration: 9.5s;">
+                <div class="icon-3d">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg" alt="Adobe XD" style="border-radius: 15px;">
+                </div>
+            </div>
+
+            <!-- Canva Icon -->
+            <div class="tool-icon canva-icon" style="--delay: 7s; --duration: 10.5s;">
+                <div class="icon-3d">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" alt="Canva" style="border-radius: 15px;">
+                </div>
+            </div>
+
+            <!-- Blender Icon -->
+            <div class="tool-icon palette-icon" style="--delay: 8s; --duration: 8.5s;">
+                <div class="icon-3d">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg" alt="Blender" style="border-radius: 15px;">
+                </div>
+            </div>
+
+            <!-- Cinema 4D Icon -->
+            <div class="tool-icon pen-icon" style="--delay: 9s; --duration: 10.8s;">
+                <div class="icon-3d">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Cinema_4D_Logo.svg/512px-Cinema_4D_Logo.svg.png" alt="Cinema 4D" style="border-radius: 15px;">
+                </div>
+            </div>
+        </div>
+        <div class="tools-overlay"></div>
+    </div>
+    
+    <div class="hero-content">
+        <h1>Graphic Design Portfolio</h1>
+        <p>Explore my creative work in branding, print design, and digital media. Each project represents a unique challenge and solution tailored to client needs.</p>
+        
+        <div class="category-filter">
+            <button class="filter-btn active" data-category="all">All Work</button>
+            <button class="filter-btn" data-category="logo">Logo Design</button>
+            <button class="filter-btn" data-category="flyer">Flyers</button>
+            <button class="filter-btn" data-category="book">Book Covers</button>
+            <button class="filter-btn" data-category="poster">Posters</button>
+            <button class="filter-btn" data-category="banner">Banners</button>
+        </div>
+    </div>
+</section>
+
+ <!-- Logo Design Section -->
+<section class="portfolio-section" id="logo-design">
+    <div class="section-header">
+        <h2>Logo Design</h2>
+        <p>Distinctive brand identities that communicate core values and make lasting impressions.</p>
+    </div>
+    
+    <div class="portfolio-grid">
+        <!-- Portfolio Item 1 -->
+        <div class="portfolio-item" data-category="logo">
+            <div class="portfolio-item-container">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" 
+                     alt="Tech Startup Logo" 
+                     class="portfolio-image">
+                <div class="portfolio-watermark"></div>
+            </div>
+            <div class="portfolio-info">
+                <h3>Tech Startup Logo</h3>
+                <p>Minimalist design for SaaS company</p>
+            </div>
+        </div>
+        
+        <!-- Portfolio Item 2 -->
+        <div class="portfolio-item" data-category="logo">
+            <div class="portfolio-item-container">
+                <img src="https://images.unsplash.com/photo-1613909207039-6b173b755cc1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                     alt="Restaurant Branding" 
+                     class="portfolio-image">
+                <div class="portfolio-watermark"></div>
+            </div>
+            <div class="portfolio-info">
+                <h3>Restaurant Branding</h3>
+                <p>Complete identity for gourmet bistro</p>
+            </div>
+        </div>
+        
+        <!-- Portfolio Item 3 -->
+        <div class="portfolio-item" data-category="logo">
+            <div class="portfolio-item-container">
+                <img src="https://images.unsplash.com/photo-1611267254323-4db7b39c732c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                     alt="Fitness Brand Logo" 
+                     class="portfolio-image">
+                <div class="portfolio-watermark"></div>
+            </div>
+            <div class="portfolio-info">
+                <h3>Fitness Brand Logo</h3>
+                <p>Energetic design for health club</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider">
+    <div class="divider-line"></div>
+    <div class="divider-diamond"></div>
+    <div class="divider-line"></div>
+</div>
+
+<!-- Flyer Design Section -->
+<section class="portfolio-section" id="flyer-design">
+    <div class="section-header">
+        <h2>Flyer Designs</h2>
+        <p>Eye-catching promotional materials that drive engagement and conversions.</p>
+    </div>
+    
+    <div class="portfolio-grid">
+        <!-- Portfolio Item 4 -->
+        <div class="portfolio-item" data-category="flyer">
+            <div class="portfolio-item-container">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Music Event Flyer" 
+                     class="portfolio-image">
+                <div class="portfolio-watermark"></div>
+            </div>
+            <div class="portfolio-info">
+                <h3>Music Event Flyer</h3>
+                <p>Vibrant design for summer festival</p>
+            </div>
+        </div>
+        
+        <!-- Portfolio Item 5 -->
+        <div class="portfolio-item" data-category="flyer">
+            <div class="portfolio-item-container">
+                <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Restaurant Promotion" 
+                     class="portfolio-image">
+                <div class="portfolio-watermark"></div>
+            </div>
+            <div class="portfolio-info">
+                <h3>Restaurant Promotion</h3>
+                <p>Appetizing menu specials flyer</p>
+            </div>
+        </div>
+        
+        <!-- Portfolio Item 6 -->
+        <div class="portfolio-item" data-category="flyer">
+            <div class="portfolio-item-container">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Business Conference" 
+                     class="portfolio-image">
+                <div class="portfolio-watermark"></div>
+            </div>
+            <div class="portfolio-info">
+                <h3>Business Conference</h3>
+                <p>Professional corporate event flyer</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider">
+    <div class="divider-line"></div>
+    <div class="divider-diamond"></div>
+    <div class="divider-line"></div>
+</div>
+
+<!-- Book Cover Section -->
+<section class="portfolio-section" id="book-covers">
+    <div class="section-header">
+        <h2>Book Covers</h2>
+        <p>Compelling designs that capture the essence of the written work and attract readers.</p>
+    </div>
+    
+    <div class="portfolio-grid">
+        <!-- Portfolio Item 7 -->
+        <div class="portfolio-item" data-category="book">
+            <div class="portfolio-item-container">
+                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                     alt="Fantasy Novel" 
+                     class="portfolio-image">
+                <div class="portfolio-watermark"></div>
+            </div>
+            <div class="portfolio-info">
+                <h3>Fantasy Novel</h3>
+                <p>Epic adventure book cover</p>
+            </div>
+        </div>
+        
+        <!-- Portfolio Item 8 -->
+        <div class="portfolio-item" data-category="book">
+            <div class="portfolio-item-container">
+                <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1376&q=80" 
+                     alt="Business Guide" 
+                     class="portfolio-image">
+                <div class="portfolio-watermark"></div>
+            </div>
+            <div class="portfolio-info">
+                <h3>Business Guide</h3>
+                <p>Professional non-fiction cover</p>
+            </div>
+        </div>
+        
+        <!-- Portfolio Item 9 -->
+        <div class="portfolio-item" data-category="book">
+            <div class="portfolio-item-container">
+                <img src="https://images.unsplash.com/photo-1531346878377-a5be20888e57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                     alt="Romance Novel" 
+                     class="portfolio-image">
+                <div class="portfolio-watermark"></div>
+            </div>
+            <div class="portfolio-info">
+                <h3>Romance Novel</h3>
+                <p>Emotional contemporary cover</p>
+            </div>
+        </div>
+    </div>
+</section>
+    <div class="section-divider">
+        <div class="divider-line"></div>
+        <div class="divider-diamond"></div>
+        <div class="divider-line"></div>
+    </div>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Start Your Project?</h2>
+            <p>I'm available for new design projects and would love to discuss how I can help bring your vision to life.</p>
+            <a href="index.html#contact" class="cta-btn">Get in Touch</a>
+        </div>
+    </section>
+
+     <!-- Footer Section (Matching index.html) -->
+    <footer class="portfolio-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">Talha<span>.</span></a>
+                    <div class="footer-social">
+                        <a href="waiting.html" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="waiting.html" class="social-link" aria-label="LinkedIn"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="waiting.html" class="social-link" aria-label="Twitter"><i
+                                class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        ©2022 <span id="year"></span> Muhammad Talha
+                    </div>
+                    <div class="footer-legal">
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</section>
+
+<script>
+    
+    // ========== INSPECTION PREVENTION ========== //
+    // Block right-click context menu
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        showProtectionMessage("Right-click is disabled to protect the content.");
+    });
+
+    // Block F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C, Ctrl+U
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'F12' || 
+            (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key)) ||
+            (e.ctrlKey && e.key === 'u')) {
+            e.preventDefault();
+            showProtectionMessage("Developer tools are disabled on this page.");
+        }
+    });
+
+    // Block opening dev tools via browser menu
+    function blockDevTools() {
+        function detectDevTools() {
+            if (window.outerWidth - window.innerWidth > 100 || 
+                window.outerHeight - window.innerHeight > 100) {
+                showProtectionMessage("Developer tools are disabled on this page.");
+            }
+        }
+    }
+    blockDevTools();
+
+    // Show protection message
+    function showProtectionMessage(message) {
+        const existingMsg = document.getElementById('protection-message');
+        if (existingMsg) existingMsg.remove();
+        
+        const msg = document.createElement('div');
+        msg.id = 'protection-message';
+        msg.textContent = message;
+        msg.style.position = 'fixed';
+        msg.style.bottom = '20px';
+        msg.style.left = '50%';
+        msg.style.transform = 'translateX(-50%)';
+        msg.style.backgroundColor = 'rgba(0,0,0,0.8)';
+        msg.style.color = 'white';
+        msg.style.padding = '10px 20px';
+        msg.style.borderRadius = '5px';
+        msg.style.zIndex = '9999';
+        msg.style.animation = 'fadeInOut 3s forwards';
+        
+        document.body.appendChild(msg);
+        
+        // Add animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInOut {
+                0% { opacity: 0; bottom: 0; }
+                10% { opacity: 1; bottom: 20px; }
+                90% { opacity: 1; bottom: 20px; }
+                100% { opacity: 0; bottom: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        setTimeout(() => msg.remove(), 3000);
+    }
+
+    // ========== EXISTING FUNCTIONALITY ========== //
+    // Theme synchronization functions
+    function applyTheme(isDarkMode) {
+        if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+            darkModeIcon.classList.remove('fa-moon');
+            darkModeIcon.classList.add('fa-sun');
+        } else {
+            document.body.classList.remove('dark-mode');
+            darkModeIcon.classList.remove('fa-sun');
+            darkModeIcon.classList.add('fa-moon');
+        }
+        updateBlogLinks();
+    }
+
+    // Update blog links with theme parameter
+    function updateBlogLinks() {
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        document.querySelectorAll('a[href*="blog.html"]').forEach(link => {
+            const url = new URL(link.href, window.location.origin);
+            url.searchParams.set('theme', isDarkMode ? 'dark' : 'light');
+            link.href = url.toString();
+        });
+    }
+
+    // Check for saved theme preference (using same format as home page)
+    const darkModeIcon = document.getElementById('darkMode-icon');
+    const savedTheme = localStorage.getItem('darkMode') === 'enabled';
+    applyTheme(savedTheme);
+
+    // Check for theme parameter in URL (like home page)
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlTheme = urlParams.get('theme');
+    if (urlTheme === 'dark') {
+        applyTheme(true);
+        localStorage.setItem('darkMode', 'enabled');
+    } else if (urlTheme === 'light') {
+        applyTheme(false);
+        localStorage.setItem('darkMode', 'disabled');
+    }
+
+    // Dark mode toggle with cross-page synchronization
+    darkModeIcon.addEventListener('click', () => {
+        const isDarkMode = !document.body.classList.contains('dark-mode');
+        applyTheme(isDarkMode);
+        
+        // Save preference to localStorage (using same format as home page)
+        localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+        
+        // Broadcast theme change to other pages
+        if (typeof(Storage) !== 'undefined') {
+            localStorage.setItem('themeToggled', Date.now());
+        }
+    });
+
+    // Listen for theme changes from other pages
+    window.addEventListener('storage', (event) => {
+        if (event.key === 'themeToggled') {
+            const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+            applyTheme(isDarkMode);
+        }
+    });
+
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navbar = document.querySelector('.navbar');
+
+    menuToggle.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+        menuToggle.querySelector('i').classList.toggle('fa-bars');
+        menuToggle.querySelector('i').classList.toggle('fa-times');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.navbar a').forEach(link => {
+        link.addEventListener('click', () => {
+            navbar.classList.remove('active');
+            menuToggle.querySelector('i').classList.add('fa-bars');
+            menuToggle.querySelector('i').classList.remove('fa-times');
+        });
+    });
+
+    // Header Scroll Effect
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('.header');
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Portfolio Filtering System
+    function setupPortfolioFiltering() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        const portfolioSections = document.querySelectorAll('.portfolio-section');
+
+        // Initialize all items as visible
+        function showAllItems() {
+            portfolioItems.forEach(item => {
+                item.style.display = 'block';
+                item.classList.remove('filtered-out');
+            });
+            portfolioSections.forEach(section => {
+                section.style.display = 'block';
+            });
+        }
+
+        // Filter items based on category
+        function filterItems(category) {
+            let hasVisibleItems = false;
+
+            portfolioItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                const shouldShow = category === 'all' || itemCategory === category;
+                
+                item.style.display = shouldShow ? 'block' : 'none';
+                item.classList.toggle('filtered-out', !shouldShow);
+                
+                if (shouldShow) hasVisibleItems = true;
+            });
+
+            // Show/hide sections based on whether they contain visible items
+            portfolioSections.forEach(section => {
+                const sectionHasVisibleItems = Array.from(section.querySelectorAll('.portfolio-item'))
+                    .some(item => !item.classList.contains('filtered-out'));
+                
+                section.style.display = sectionHasVisibleItems ? 'block' : 'none';
+            });
+
+            // Scroll to first visible section if not at top
+            if (window.scrollY > 200) {
+                const firstVisibleSection = document.querySelector('.portfolio-section[style="display: block;"]');
+                if (firstVisibleSection) {
+                    window.scrollTo({
+                        top: firstVisibleSection.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        }
+
+        // Set up filter buttons
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Filter items
+                const filterValue = button.getAttribute('data-category');
+                filterItems(filterValue);
+                
+                // Update URL hash without page reload
+                history.pushState(null, null, `#${filterValue}`);
+            });
+        });
+
+        // Check URL hash on load for initial filter
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash && document.querySelector(`.filter-btn[data-category="${hash}"]`)) {
+                document.querySelector(`.filter-btn[data-category="${hash}"]`).click();
+            }
+        });
+    }
+
+    // Image Protection System
+    function setupImageProtection() {
+        // Disable right-click on portfolio items
+        document.addEventListener('contextmenu', (e) => {
+            if (e.target.closest('.portfolio-item')) {
+                e.preventDefault();
+                showProtectionMessage("Image downloading is disabled to protect the designer's work.");
+            }
+        });
+
+        // Disable drag/drop
+        document.querySelectorAll('.portfolio-image').forEach(img => {
+            img.setAttribute('draggable', 'false');
+            img.addEventListener('dragstart', (e) => e.preventDefault());
+        });
+    }
+
+    // Initialize Overlay Effects
+    function setupOverlayEffects() {
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+            const overlay = item.querySelector('.portfolio-overlay');
+            const overlayContent = item.querySelector('.portfolio-overlay-content');
+            
+            item.addEventListener('mouseenter', () => {
+                overlay.style.opacity = '1';
+                setTimeout(() => {
+                    overlayContent.style.opacity = '1';
+                }, 200);
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                overlay.style.opacity = '0';
+                overlayContent.style.opacity = '0';
+            });
+        });
+    }
+
+    // Initialize Watermarks
+    function setupWatermarks() {
+        document.querySelectorAll('.portfolio-item-container').forEach(container => {
+            if (!container.querySelector('.portfolio-watermark')) {
+                const watermark = document.createElement('div');
+                watermark.className = 'portfolio-watermark';
+                container.appendChild(watermark);
+            }
+        });
+    }
+
+    // Initialize all functionality
+    document.addEventListener('DOMContentLoaded', () => {
+        setupPortfolioFiltering();
+        setupImageProtection();
+        setupOverlayEffects();
+        setupWatermarks();
+    });
+</script>
+</body>
+</html>

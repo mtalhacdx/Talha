@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional UI/UX Design Services | Talha</title>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Animate.css for Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="images/icon.png">
+
+    <style>
+        /* =======================
+           Blog Page Styles
+           ======================== */
+        :root {
+            --main-color: #6c63ff;
+            --main-color-dark: #564fd8;
+            --text-color: #2d3748;
+            --light-text: #718096;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --section-padding: 5rem 0;
+        }
+
+        body.dark-mode {
+            --text-color: #f8fafc;
+            --light-text: #cbd5e1;
+            --bg-color: #1a202c;
+            --card-bg: #2d3748;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header/Navbar Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            background-color: transparent;
+        }
+
+        .header.scrolled {
+            background-color: var(--card-bg);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            padding: 1rem 7%;
+        }
+
+        body.dark-mode .header.scrolled {
+            background-color: #1e293b;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+        }
+
+        /* Header Section */
+        .blog-header {
+            text-align: center;
+            padding: 8rem 0 2rem; /* Increased top padding to account for fixed navbar */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .blog-title span {
+            color: var(--main-color);
+        }
+
+        .blog-subtitle {
+            font-size: 1.2rem;
+            color: var(--light-text);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .blog-hero-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+            transition: transform 0.3s ease;
+        }
+
+        body.dark-mode .blog-hero-image {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-hero-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* Blog Content Section */
+        .blog-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 3rem;
+            padding: var(--section-padding);
+        }
+
+        .main-content {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .main-content {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-intro {
+            margin-bottom: 3rem;
+        }
+
+        .service-intro h2 {
+            font-size: 2rem;
+            color: var(--main-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .service-intro h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--main-color);
+            border-radius: 2px;
+        }
+
+        .service-intro p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .service-details {
+            margin-top: 3rem;
+        }
+
+        .service-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: rgba(108, 99, 255, 0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--main-color);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .feature-card {
+            background: rgba(108, 99, 255, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(108, 99, 255, 0.1);
+        }
+
+        .feature-card h3 {
+            color: var(--main-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-card h3 i {
+            font-size: 1.2rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-top: 4rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(108, 99, 255, 0.1);
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--main-color);
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-color);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        /* Sidebar */
+        .blog-sidebar {
+            position: sticky;
+            top: 2rem;
+            align-self: start;
+        }
+
+        .sidebar-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .sidebar-card {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar-card h3 {
+            color: var(--main-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .sidebar-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--main-color);
+            border-radius: 2px;
+        }
+
+        .service-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-list li {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed rgba(108, 99, 255, 0.2);
+        }
+
+        .service-list li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .service-list a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-list a:hover {
+            color: var(--main-color);
+            padding-left: 5px;
+        }
+
+        .service-list a i {
+            color: var(--main-color);
+            font-size: 0.8rem;
+        }
+
+        /* Back Button */
+       .btn {
+             display: inline-block;
+            padding: 0.9rem 2.2rem;
+            background: var(--main-color);
+            color: var(--white-color);
+            font-size: 1rem;
+            border: 2px solid var(--main-color);
+            font-weight: 600;
+            border-radius: 50px;
+            margin-top: -10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--white-color);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn:hover {
+            color: var(--main-color);
+            border-color: var(--main-color);
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+
+        body.dark-mode ul {
+            color: var(--light-text);
+        }
+
+        body.dark-mode .faq-item {
+            border-bottom: 1px solid rgba(200, 200, 255, 0.1);
+        }
+
+        body.dark-mode .back-btn:hover {
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
+        }
+
+        body.dark-mode .service-list li {
+            border-bottom: 1px dashed rgba(200, 200, 255, 0.1);
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .blog-content {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-sidebar {
+                position: static;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blog-title {
+                font-size: 2.5rem;
+            }
+
+            .service-features {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-sidebar {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                padding: 1.5rem 5%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .blog-header {
+                padding: 6rem 0 1rem;
+            }
+
+            .blog-title {
+                font-size: 2rem;
+            }
+
+            .main-content {
+                padding: 2rem;
+            }
+
+            .header {
+                padding: 1rem 5%;
+            }
+        }
+
+        /* ============================================================
+            Footer Styles (Matching index.html)
+        ============================================================ */
+        .portfolio-footer {
+            background: var(--bg-color);
+            color: var(--text-color);
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .footer-logo span {
+            color: var(--main-color);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            color: var(--text-color);
+            opacity: 0.8;
+            transition: all 0.2s ease;
+        }
+
+        .social-link:hover {
+            color: var(--main-color);
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(108, 99, 255, 0.1);
+        }
+
+        .footer-copyright {
+            opacity: 0.8;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-legal a {
+            opacity: 0.8;
+            transition: all 0.2s ease;
+        }
+
+        .footer-legal a:hover {
+            color: var(--main-color);
+            opacity: 1;
+        }
+
+        /* Footer Responsive Adjustments */
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .footer-brand {
+                flex-direction: row;
+            }
+
+            .footer-bottom {
+                flex-direction: row;
+                border-top: none;
+                padding-top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- =======================
+     Header Section
+    ======================== -->
+    <header class="header">
+        <a href="index.html" class="logo">Talha<span>.</span></a>
+        <nav class="navbar">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="index.html#portfolio">Portfolio</a>
+            <a href="index.html#contact">Contact</a>
+            <i class="fas fa-moon" id="darkMode-icon"></i>
+        </nav>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Blog Header Section -->
+    <header class="blog-header">
+        <div class="container">
+            <h1 class="blog-title">Professional <span>UI/UX Design</span> Services</h1>
+            <p class="blog-subtitle">Creating intuitive, beautiful digital experiences that users love and businesses thrive on</p>
+
+            <img src="images/Web-Designing.jpg"
+                alt="UI/UX designer working on digital interface" class="blog-hero-image">
+        </div>
+    </header>
+
+    <!-- Main Blog Content -->
+    <main class="blog-content container">
+        <article class="main-content">
+            <section class="service-intro">
+                <h2>Human-Centered Digital Design</h2>
+                <p>With 7+ years of experience in UI/UX design, I specialize in creating digital products that are not just visually stunning but deliver exceptional user experiences. My design process combines aesthetic sensibility with user psychology to create interfaces that are beautiful, intuitive, and effective.</p>
+                <p>From mobile apps to complex web platforms, I approach each project with fresh eyes, ensuring the final design solves real user problems while aligning with your business objectives.</p>
+            </section>
+
+            <section class="service-details">
+                <h2>My Design Process</h2>
+                <p>Every project follows a proven UX methodology tailored to your specific needs:</p>
+
+                <div class="service-features">
+                    <div class="feature-card">
+                        <h3><i class="fas fa-search"></i> Research & Discovery</h3>
+                        <p>User interviews, competitor analysis, and market research to inform design decisions.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3><i class="fas fa-sitemap"></i> Information Architecture</h3>
+                        <p>Structuring content and flows for optimal usability and findability.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3><i class="fas fa-pencil-ruler"></i> Wireframing & Prototyping</h3>
+                        <p>Creating low-to-high fidelity prototypes to test and refine concepts.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3><i class="fas fa-paint-brush"></i> UI Design & Branding</h3>
+                        <p>Developing visually appealing interfaces that reflect your brand identity.</p>
+                    </div>
+                </div>
+
+                <h2>Why Choose My UI/UX Services?</h2>
+                <p>In today's competitive digital landscape, exceptional design is non-negotiable. Here's what sets my work apart:</p>
+                <ul>
+                    <li><strong>User-First Approach:</strong> Designs rooted in real user needs and behaviors</li>
+                    <li><strong>Cross-Platform Expertise:</strong> Consistent experiences across devices</li>
+                    <li><strong>Data-Informed:</strong> Leveraging analytics and testing to validate designs</li>
+                    <li><strong>Technical Feasibility:</strong> Designs that developers can actually build</li>
+                    <li><strong>Pixel Precision:</strong> Meticulous attention to visual details</li>
+                    <li><strong>End-to-End Service:</strong> From concept to final assets and design systems</li>
+                </ul>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <div class="faq-question">What's the difference between UI and UX design?</div>
+                    <div class="faq-answer">
+                        <p><strong>UX (User Experience) Design</strong> focuses on the overall feel of the product and how users interact with it (research, flows, usability). <strong>UI (User Interface) Design</strong> deals with the visual touchpoints users interact with (colors, typography, buttons). I specialize in both to deliver complete solutions.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What design tools do you use?</div>
+                    <div class="faq-answer">
+                        <p>My core toolkit includes:</p>
+                        <ul>
+                            <li>Figma (primary design tool)</li>
+                            <li>Adobe Creative Suite (Photoshop, Illustrator)</li>
+                            <li>Sketch</li>
+                            <li>ProtoPie for advanced prototyping</li>
+                            <li>UserTesting for research</li>
+                            <li>Hotjar for analytics</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Do you create design systems?</div>
+                    <div class="faq-answer">
+                        <p>Yes, I develop comprehensive design systems including:</p>
+                        <ul>
+                            <li>Style guides (colors, typography, icons)</li>
+                            <li>Component libraries</li>
+                            <li>Design tokens</li>
+                            <li>Documentation for developers</li>
+                            <li>Responsive layout grids</li>
+                            <li>Accessibility guidelines</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How do you ensure accessibility?</div>
+                    <div class="faq-answer">
+                        <p>All my designs follow WCAG 2.1 guidelines:</p>
+                        <ul>
+                            <li>Color contrast ratios (minimum 4.5:1)</li>
+                            <li>Keyboard navigability</li>
+                            <li>Screen reader compatibility</li>
+                            <li>Clear visual hierarchy</li>
+                            <li>Alternative text for images</li>
+                            <li>Responsive design principles</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What deliverables will I receive?</div>
+                    <div class="faq-answer">
+                        <p>Typical deliverables include:</p>
+                        <ul>
+                            <li>User research reports</li>
+                            <li>User personas and journey maps</li>
+                            <li>Wireframes and prototypes</li>
+                            <li>High-fidelity mockups</li>
+                            <li>Design system documentation</li>
+                            <li>Developer handoff files</li>
+                            <li>Style guides and assets</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <a href="index.html?theme=light" class="btn" id="back-to-home">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+        </article>
+
+        <!-- Blog Sidebar -->
+        <aside class="blog-sidebar">
+            <div class="sidebar-card">
+                <h3>Design Services</h3>
+                <ul class="service-list">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> UX Research</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Interface Design</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Prototyping</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Design Systems</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Usability Testing</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> UX Audits</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>Get Started</h3>
+                <p>Ready to transform your digital product? Contact me to discuss your project and receive a custom proposal.</p>
+                <a href="index.html#contact" class="btn" style="margin-top: 15px; margin-bottom: -7px;">
+                    <i class="fas fa-envelope"></i> Contact Me
+                </a>
+            </div>
+        </aside>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme synchronization functions
+            function applyTheme(isDarkMode) {
+                const darkModeIcon = document.getElementById('darkMode-icon');
+                if (isDarkMode) {
+                    document.body.classList.add('dark-mode');
+                    if (darkModeIcon) {
+                        darkModeIcon.classList.remove('fa-moon');
+                        darkModeIcon.classList.add('fa-sun');
+                    }
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    if (darkModeIcon) {
+                        darkModeIcon.classList.remove('fa-sun');
+                        darkModeIcon.classList.add('fa-moon');
+                    }
+                }
+                updateBackButton();
+            }
+
+            // Update back button with theme parameter
+            function updateBackButton() {
+                const backButton = document.getElementById('back-to-home');
+                if (backButton) {
+                    const isDarkMode = document.body.classList.contains('dark-mode');
+                    backButton.href = `index.html?theme=${isDarkMode ? 'dark' : 'light'}`;
+                }
+            }
+
+            // Check for saved theme preference (using same format as home page)
+            const darkModeIcon = document.getElementById('darkMode-icon');
+            const savedTheme = localStorage.getItem('darkMode') === 'enabled';
+            applyTheme(savedTheme);
+
+            // Check for theme parameter in URL (like home page)
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlTheme = urlParams.get('theme');
+            if (urlTheme === 'dark') {
+                applyTheme(true);
+                localStorage.setItem('darkMode', 'enabled');
+            } else if (urlTheme === 'light') {
+                applyTheme(false);
+                localStorage.setItem('darkMode', 'disabled');
+            }
+
+            // Dark mode toggle with cross-page synchronization
+            if (darkModeIcon) {
+                darkModeIcon.addEventListener('click', () => {
+                    const isDarkMode = !document.body.classList.contains('dark-mode');
+                    applyTheme(isDarkMode);
+                    
+                    // Save preference to localStorage (using same format as home page)
+                    localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+                    
+                    // Broadcast theme change to other pages
+                    if (typeof(Storage) !== 'undefined') {
+                        localStorage.setItem('themeToggled', Date.now());
+                    }
+                });
+            }
+
+            // Listen for theme changes from other pages
+            window.addEventListener('storage', (event) => {
+                if (event.key === 'themeToggled') {
+                    const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+                    applyTheme(isDarkMode);
+                }
+            });
+            
+            // FAQ functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    faqItems.forEach(otherItem => {
+                        if(otherItem !== item) otherItem.classList.remove('active');
+                    });
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Mobile menu toggle functionality
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navbar = document.querySelector('.navbar');
+            if (menuToggle && navbar) {
+                menuToggle.addEventListener('click', () => {
+                    navbar.classList.toggle('active');
+                    menuToggle.querySelector('i').className = 
+                        navbar.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+                });
+            }
+
+            // Navbar scroll effect
+            const header = document.querySelector('.header');
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            }
+
+            // Set current year in footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
+    </script>
+
+    <!-- Footer Section (Matching index.html) -->
+    <footer class="portfolio-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">Talha<span>.</span></a>
+                    <div class="footer-social">
+                        <a href="waiting.html" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="waiting.html" class="social-link" aria-label="LinkedIn"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="waiting.html" class="social-link" aria-label="Twitter"><i
+                                class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        © <span id="year"></span> Muhammad Talha
+                    </div>
+                    <div class="footer-legal">
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
